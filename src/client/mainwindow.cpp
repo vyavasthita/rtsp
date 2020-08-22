@@ -103,3 +103,8 @@ void MainWindow::on_actionOpenFile_triggered()
 
     setMediaFilePath(file);
 }
+
+void MainWindow::on_forwardButton_clicked()
+{
+    player->setPlaybackRate(2.0);
+}

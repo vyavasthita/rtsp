@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>796</width>
     <height>600</height>
    </rect>
   </property>
@@ -44,7 +44,7 @@
       <x>10</x>
       <y>460</y>
       <width>371</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="orientation">
@@ -54,27 +54,47 @@
    <widget class="QPushButton" name="pauseButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>360</x>
       <y>510</y>
-      <width>80</width>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Pause</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="clientresources.qrc">
+      <normaloff>:/images/icons/pause.png</normaloff>:/images/icons/pause.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>25</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="stopButton">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>460</x>
       <y>510</y>
-      <width>80</width>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Stop</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="clientresources.qrc">
+      <normaloff>:/images/icons/stop.png</normaloff>:/images/icons/stop.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>25</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="muteUnmuteButton">
@@ -124,7 +144,7 @@
       <x>650</x>
       <y>410</y>
       <width>111</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -140,14 +160,76 @@
    <widget class="QPushButton" name="playButton">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>310</x>
       <y>510</y>
-      <width>81</width>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Play</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="clientresources.qrc">
+      <normaloff>:/images/icons/play.png</normaloff>:/images/icons/play.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backwardButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>510</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="clientresources.qrc">
+      <normaloff>:/images/icons/rewind.png</normaloff>:/images/icons/rewind.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>25</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="forwardButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>510</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="clientresources.qrc">
+      <normaloff>:/images/icons/forward.png</normaloff>:/images/icons/forward.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>25</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -156,7 +238,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>796</width>
      <height>20</height>
     </rect>
    </property>
@@ -181,6 +263,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="clientresources.qrc"/>
+ </resources>
  <connections/>
 </ui>

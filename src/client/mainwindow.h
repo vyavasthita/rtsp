@@ -36,10 +36,13 @@ private slots:
 
     void on_actionOpenFile_triggered();
 
+    void on_forwardButton_clicked();
+
 private:
     void setRtspServerPath(const QString& path);
 
     void setMediaFilePath(const QString& path);
+
     Ui::MainWindow *ui;
 
     QVideoWidget* videoWidget;
