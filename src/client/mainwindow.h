@@ -22,8 +22,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_3_clicked();
-
     void on_playButton_clicked();
 
     void on_pauseButton_clicked();
@@ -34,7 +32,14 @@ private slots:
 
     void on_volumeSlider_valueChanged(int value);
 
+    void on_actionOpenNetworkStream_triggered();
+
+    void on_actionOpenFile_triggered();
+
 private:
+    void setRtspServerPath(const QString& path);
+
+    void setMediaFilePath(const QString& path);
     Ui::MainWindow *ui;
 
     QVideoWidget* videoWidget;

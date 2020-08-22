@@ -14,48 +14,22 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>rtsp://127.0.0.1:8554/test</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>30</y>
       <width>761</width>
-      <height>371</height>
+      <height>351</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout"/>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>0</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Set Path</string>
-    </property>
-   </widget>
    <widget class="QProgressBar" name="durationProgressBar">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>520</y>
+      <x>410</x>
+      <y>460</y>
       <width>381</width>
       <height>23</height>
      </rect>
@@ -68,7 +42,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>525</y>
+      <y>460</y>
       <width>371</width>
       <height>21</height>
      </rect>
@@ -77,24 +51,11 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="playButton">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>0</y>
-      <width>80</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Play</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pauseButton">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>0</y>
+      <x>340</x>
+      <y>510</y>
       <width>80</width>
       <height>31</height>
      </rect>
@@ -106,8 +67,8 @@
    <widget class="QPushButton" name="stopButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>0</y>
+      <x>490</x>
+      <y>510</y>
       <width>80</width>
       <height>31</height>
      </rect>
@@ -119,8 +80,8 @@
    <widget class="QPushButton" name="muteUnmuteButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
+      <x>550</x>
+      <y>410</y>
       <width>80</width>
       <height>31</height>
      </rect>
@@ -129,30 +90,64 @@
      <string>Mute</string>
     </property>
    </widget>
+   <widget class="QLabel" name="filePathText">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>0</y>
+      <width>481</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Select File Path</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Path</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <widget class="QSlider" name="volumeSlider">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>70</y>
-      <width>160</width>
-      <height>31</height>
+      <x>650</x>
+      <y>410</y>
+      <width>111</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Volume Level</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="volumeControlLabel">
+   <widget class="QPushButton" name="playButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>50</y>
-      <width>111</width>
-      <height>16</height>
+      <x>210</x>
+      <y>510</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Volume Control</string>
+     <string>Play</string>
     </property>
    </widget>
   </widget>
@@ -165,8 +160,26 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMedia">
+    <property name="title">
+     <string>Media</string>
+    </property>
+    <addaction name="actionOpenFile"/>
+    <addaction name="actionOpenNetworkStream"/>
+   </widget>
+   <addaction name="menuMedia"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpenFile">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionOpenNetworkStream">
+   <property name="text">
+    <string>Open Network Stream</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
