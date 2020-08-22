@@ -19,7 +19,13 @@ Qt uses gstreamer as a media service (backend).
 			
 				gst-launch-1.0 -v fakesrc num_buffers=5 ! fakesink
 		
-		# Qt Binding
+	Step 2 : Compile
+		gcc <file>.c -o <executable> $(pkg-config --cflags --libs gstreamer-1.0 gstreamer-rtsp-server-1.0)
+
+
+# RTSP Client
+		Step 1 : Install Qt Gstreamer bindings 
+		
 		sudo apt-get install qtmultimedia5-dev
 		sudo apt-get install libqt5gstreamer-dev
 		sudo apt-get install libgstreamer1.0-dev
@@ -28,20 +34,14 @@ Qt uses gstreamer as a media service (backend).
 		
 		# While building using QtCreator
 			Error => Qt5GStreamer-1.0 development package not found
-			Solution => LIBS += -lQt5GStreamer-1.0 -lQt5GStreamerUi-1.0
+			Solution in PRO file => LIBS += -lQt5GStreamer-1.0 -lQt5GStreamerUi-1.0
 		
 		# While running using QtCreator
 			Error => defaultServiceProvider::requestService no service found for org.qt-project.qt.mediaplayer
 			Solution => sudo apt-get install libqt5multimedia5-plugins
-
-	Step 2 : Compile
-		gcc <file>.c -o <executable> $(pkg-config --cflags --libs gstreamer-1.0 gstreamer-rtsp-server-1.0)
-
-
-# RTSP Client
-	Create a QMainWindow project
-	And run.
-	Use similar url for viewing the video => rtsp://<IP>:8554/server
+			
+		Step 2 : Create a QMainWindow project and run.
+		Step 3 : Use similar url for viewing the video => rtsp://<IP>:8554/server
 
 # ---------------------------------------------------------------------------------
 # Source Code
