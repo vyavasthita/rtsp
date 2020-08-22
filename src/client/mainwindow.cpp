@@ -19,22 +19,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->horizontalLayout->addWidget(videoWidget);
 
-    slider = new QSlider(this);
-    bar = new QProgressBar(this);
+    connect(player, &QMediaPlayer::durationChanged, ui->durationSlider, &QSlider::setMaximum);
+    connect(player, &QMediaPlayer::positionChanged, ui->durationSlider, &QSlider::setValue);
+    connect(ui->durationSlider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
 
-    slider->setOrientation(Qt::Horizontal);
-   // bar->setOrientation(Qt::Horizontal);
-
-    ui->statusbar->addPermanentWidget(slider);
-
-    ui->statusbar->addPermanentWidget(bar);
-
-    connect(player, &QMediaPlayer::durationChanged, slider, &QSlider::setMaximum);
-    connect(player, &QMediaPlayer::positionChanged, slider, &QSlider::setValue);
-    connect(slider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
-
-    connect(player, &QMediaPlayer::durationChanged, bar, &QProgressBar::setMaximum);
-    connect(player, &QMediaPlayer::positionChanged, bar, &QProgressBar::setValue);
+    connect(player, &QMediaPlayer::durationChanged, ui->durationProgressBar, &QProgressBar::setMaximum);
+    connect(player, &QMediaPlayer::positionChanged, ui->durationProgressBar, &QProgressBar::setValue);
 }
 
 MainWindow::~MainWindow()
@@ -42,18 +32,45 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_3_clicked()
 {
     const QUrl url = QUrl(ui->lineEdit->text());
 
     const QNetworkRequest requestRtsp1(url);
 
     player->setMedia(requestRtsp1);
+}
 
+void MainWindow::on_playButton_clicked()
+{
     player->play();
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pauseButton_clicked()
 {
     player->pause();
+}
+
+void MainWindow::on_stopButton_clicked()
+{
+    player->stop();
+}
+
+void MainWindow::on_muteUnmuteButton_clicked()
+{
+    if (ui->muteUnmuteButton->text() == "Mute")
+    {
+        player->setMuted(true);
+        ui->muteUnmuteButton->setText("UnMute");
+    }
+    else
+    {
+        player->setMuted(false);
+        ui->muteUnmuteButton->setText("Mute");
+    }
+}
+
+void MainWindow::on_volumeSlider_valueChanged(int value)
+{
+    player->setVolume(value);
 }

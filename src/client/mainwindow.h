@@ -22,16 +22,22 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_3_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_playButton_clicked();
+
+    void on_pauseButton_clicked();
+
+    void on_stopButton_clicked();
+
+    void on_muteUnmuteButton_clicked();
+
+    void on_volumeSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
 
     QVideoWidget* videoWidget;
     QMediaPlayer* player;
-    QProgressBar* bar;
-    QSlider* slider;
 };
 #endif // MAINWINDOW_H
