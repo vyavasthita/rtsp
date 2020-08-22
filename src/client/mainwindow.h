@@ -5,6 +5,8 @@
 #include <QMediaPlayer>
 #include <QNetworkRequest>
 #include <QVideoWidget>
+#include <QProgressBar>
+#include <QSlider>
 
 
 QT_BEGIN_NAMESPACE
@@ -22,10 +24,14 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     QVideoWidget* videoWidget;
     QMediaPlayer* player;
+    QProgressBar* bar;
+    QSlider* slider;
 };
 #endif // MAINWINDOW_H

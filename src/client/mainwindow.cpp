@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QVBoxLayout>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,8 +12,29 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowTitle("Super Nova Stream Viewer");
 
-    videoWidget = new QVideoWidget(this);
     player = new QMediaPlayer(this);
+    videoWidget = new QVideoWidget(this);
+
+    player->setVideoOutput(videoWidget);
+
+    ui->horizontalLayout->addWidget(videoWidget);
+
+    slider = new QSlider(this);
+    bar = new QProgressBar(this);
+
+    slider->setOrientation(Qt::Horizontal);
+   // bar->setOrientation(Qt::Horizontal);
+
+    ui->statusbar->addPermanentWidget(slider);
+
+    ui->statusbar->addPermanentWidget(bar);
+
+    connect(player, &QMediaPlayer::durationChanged, slider, &QSlider::setMaximum);
+    connect(player, &QMediaPlayer::positionChanged, slider, &QSlider::setValue);
+    connect(slider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
+
+    connect(player, &QMediaPlayer::durationChanged, bar, &QProgressBar::setMaximum);
+    connect(player, &QMediaPlayer::positionChanged, bar, &QProgressBar::setValue);
 }
 
 MainWindow::~MainWindow()
@@ -22,18 +44,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    this->setCentralWidget(videoWidget);
-    player->setVideoOutput(videoWidget);
+    const QUrl url = QUrl(ui->lineEdit->text());
 
-    // Links de RTSP e Videos
-    const QUrl url1 = QUrl(ui->lineEdit->text());
+    const QNetworkRequest requestRtsp1(url);
 
-    // O NetworkRequest para os links
-    const QNetworkRequest requestRtsp1(url1);
-
-    // Adicionandos os links para o conteudo
     player->setMedia(requestRtsp1);
 
-    // Da play para iniciar o Streaming
     player->play();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    player->pause();
 }

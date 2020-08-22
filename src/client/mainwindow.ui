@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>50</y>
+      <x>0</x>
+      <y>0</y>
       <width>241</width>
       <height>31</height>
      </rect>
@@ -30,15 +30,39 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>50</y>
-      <width>81</width>
+      <x>250</x>
+      <y>0</y>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Watch</string>
+     <string>Play</string>
     </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>0</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>761</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
