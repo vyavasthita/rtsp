@@ -108,3 +108,8 @@ void MainWindow::on_forwardButton_clicked()
 {
     player->setPlaybackRate(2.0);
 }
+
+void MainWindow::on_backwardButton_clicked()
+{
+    player->setPlaybackRate(-1.0);
+}

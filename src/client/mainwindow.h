@@ -38,6 +38,8 @@ private slots:
 
     void on_forwardButton_clicked();
 
+    void on_backwardButton_clicked();
+
 private:
     void setRtspServerPath(const QString& path);
 
